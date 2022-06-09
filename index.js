@@ -1,7 +1,10 @@
 const fs = require("fs");
 const wordListPath = require("word-list");
 const wordArray = fs.readFileSync(wordListPath, "utf8").split("\n");
-const length_5 = wordArray.filter((word) => word.length === 5);
+
+const length_det = (l) => wordArray.filter((word) => word.length === l);
+
+const length_use = length_det(5);
 
 const blocked_string = "";
 const included_string = "";
@@ -14,7 +17,7 @@ const included_char = included_string.split("");
 const pot_word = pot_string.split("").map((c) => (c === "0" ? null : c));
 cant_strings.map((string, i) => (cant_strings[i] = string.split("")));
 
-let blocked_arr = length_5;
+let blocked_arr = length_use;
 blocked_char.map((char) => {
   blocked_arr = blocked_arr.filter((word) => !word.includes(char));
 });
